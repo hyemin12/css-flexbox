@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Css Flexbox 연습</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&lang=sql&skin=desert"></script>
+
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./main.js"></script>
+  </head>
+  <body>
+    <h1 class="main-title">Css Flexbox</h1>
+    <section class="flex-container-section" style="margin: 0 auto">
+      <h4>Flex Container / 컨테이너</h4>
+      <div class="flex-container">
+        <div class="item item flex-item">item / Flex 아이템</div>
+        <div class="item item flex-item">item / Flex 아이템</div>
+        <div class="item item flex-item">item / Flex 아이템</div>
+      </div>
+      <p>목차</p>
+      <ol>
+        <li><a href="#section1">[컨테이너] 배치 방향 flex-direction</a></li>
+        <li><a href="#section2">[컨테이너] 여러줄 처리 flex-wrap</a></li>
+        <li>
+          <a href="#section3">[컨테이너] 메인축 방향 정렬 justify-content</a>
+        </li>
+        <li><a href="#section4">[컨테이너] 수직축 방향 정렬 align-items</a></li>
+        <li><a href="#section5">[아이템] 기본 크기 설정 flex-basis</a></li>
+        <li><a href="#section6">[아이템] 유연하게 늘리기 flow-grow</a></li>
+        <li><a href="#section7">[아이템]유연하게 줄이기 flex-shrink</a></li>
+        <li><a href="#section8">[아이템] 수직축 정렬 align-self</a></li>
+        <li><a href="#section9">[아이템] 배치순서 order</a></li>
+      </ol>
+    </section>
+    <section>
+      <h2>#container : Flex의 영향을 받는 전체 공간</h2>
+      <div class="code">
+        <pre class="prettyprint lang-css">
+        .container {
+          display: flex;
+          /* display: inline-flex; */
+        } </pre
+        >
+      </div>
+      <div>
+        <div class="flex-container dFlex">
+          <div class="item flex-item">flex item</div>
+          <div class="item flex-item">flex item</div>
+          <div class="item flex-item">flex item</div>
+        </div>
+        <p style="background-color: #ddd">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+      <div class="select-radio">
+        <input type="radio" name="flex" /><span>block</span>
+        <input type="radio" name="flex" checked /><span>flex</span>
+        <input type="radio" name="flex" /><span>inline-flex</span>
+      </div>
+    </section>
+    <section id="section1" class="flex-container-ditection">
+      <h2>#배치 방향 flex-direction</h2>
+      <div class="code">
+        <pre class="prettyprint lang-css">
+        .container {
+          flex-direction: row;
+          /* flex-direction: row-reverse; */
+          /* flex-direction: column; */
+          /* flex-direction: column-reverse; */
+        } </pre
+        >
+      </div>
+      <div class="direction-eg">
+        <!-- direction-row -->
+        <div>
+          <div>
+            <h4>row (기본값)</h4>
+            <div
+              class="flex-container"
+              style="width: 300px; height: 100px; flex-direction: row"
+            >
+              <div class="direction-item">Item1</div>
+              <div class="direction-item">Item2</div>
+              <div class="direction-item">Item3</div>
+            </div>
+          </div>
+          <div>
+            <h4>row-reverse</h4>
+            <div
+              class="flex-container"
+              style="width: 300px; height: 100px; flex-direction: row-reverse"
+            >
+              <div class="direction-item">Item1</div>
+              <div class="direction-item">Item2</div>
+              <div class="direction-item">Item3</div>
+            </div>
+          </div>
+        </div>
+        <!-- direction-column -->
+        <div></div>
+        <div>
+          <h4>column</h4>
+          <div
+            class="flex-container"
+            style="width: 120px; height: 300px; flex-direction: column"
+          >
+            <div class="direction-item">Item1</div>
+            <div class="direction-item">Item2</div>
+            <div class="direction-item">Item3</div>
+          </div>
+        </div>
+
+        <div>
+          <h4>column-reverse</h4>
+          <div
+            class="flex-container"
+            style="width: 120px; height: 300px; flex-direction: column-reverse"
+          >
+            <div class="direction-item">Item1</div>
+            <div class="direction-item">Item2</div>
+            <div class="direction-item">Item3</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="section2" class="flex-container-wrap">
+      <h2>#여러줄 처리 flex-wrap</h2>
+      <div class="code">
+        <pre class="prettyprint lang-css">
+        .container {
+          flex-wrap: nowrap;
+          /* flex-wrap: wrap; */
+          /* flex-wrap: wrap-reverse; */
+        } </pre
+        >
+      </div>
+      <div class="df" style="display: flex; gap: 180px">
+        <div>
+          <h4>nowrap (기본값)</h4>
+          <div class="flex-container dWrap">
+            <div class="wrap-item">flex item1</div>
+            <div class="wrap-item">flex item2</div>
+            <div class="wrap-item">flex item3</div>
+          </div>
+        </div>
+        <div>
+          <h4>wrap</h4>
+          <div
+            class="flex-container dWrap"
+            style="flex-wrap: wrap; height: 100%"
+          >
+            <div class="wrap-item">flex item1</div>
+            <div class="wrap-item">flex item2</div>
+            <div class="wrap-item">flex item3</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="section3">
+      <h2>#메인축 방향 정렬 justify-content</h2>
+      <div class="code">
+        <pre class="prettyprint lang-css">
+        .container {
+          justify-content: flex-start;
+          /* justify-content: flex-end; */
+          /* justify-content: center; */
+          /* justify-content: space-between; */
+          /* justify-content: space-around; */
+          /* justify-content: space-evenly; */
+        } </pre
+        >
+      </div>
+      <div class="mb20">
+        <h4>flex-start (기본값)</h4>
+        <p>아이템들을 시작점을 기준으로 정렬</p>
+        <div class="flex-container" style="justify-content: start">
+          <div class="item align-item">item1</div>
+          <div class="item align-item">item2</div>
+          <div class="item align-item">item3</div>
+        </div>
+      </div>
+      <div class="mb20">
+        <h4>flex-end</h4>
+        <p>아이템들을 끝점을 기준으로 정렬</p>
+        <div class="flex-container" style="justify-content: end">
+          <div class="item align-item">item1</div>
+          <div class="item align-item">item2</div>
+          <div class="item align-item">item3</div>
+        </div>
+      </div>
+      <div class="mb20">
+        <h4>center</h4>
+        <p>아이템들을 가운데로 정렬</p>
+        <div class="flex-container" style="justify-content: center">
+          <div class="item align-item">item1</div>
+          <div class="item align-item">item2</div>
+          <div class="item align-item">item3</div>
+        </div>
+      </div>
+      <div class="mb20">
+        <h4>space-between</h4>
+        <p>아이템들을 균일한 간격으로 정렬</p>
+        <div class="flex-container" style="justify-content: space-between">
+          <div class="item align-item">item1</div>
+          <div class="item align-item">item2</div>
+          <div class="item align-item">item3</div>
+        </div>
+      </div>
+      <div class="mb20">
+        <h4>space-around</h4>
+        <p>아이템들의 주위를 균일한 간격으로 정렬</p>
+        <div class="flex-container" style="justify-content: space-around">
+          <div class="item align-item">item1</div>
+          <div class="item align-item">item2</div>
+          <div class="item align-item">item3</div>
+        </div>
+      </div>
+      <div class="mb20">
+        <h4>space-evenly</h4>
+        <p>
+          아이템들의 사이와 양끝에 균일한 간격을 만들어 정렬 (IE와 Edge에서는
+          지원X)
+        </p>
+        <div class="flex-container" style="justify-content: space-evenly">
+          <div class="item align-item">item1</div>
+          <div class="item align-item">item2</div>
+          <div class="item align-item">item3</div>
+        </div>
+      </div>
+    </section>
+    <section id="section4">
+      <h2>#수직축 방향 정렬 align-items</h2>
+      <div class="code">
+        <pre class="prettyprint lang-css">
+        .container {
+          align-items: stretch;
+          /* align-items: flex-start; */
+          /* align-items: flex-end; */
+          /* align-items: center; */
+          /* align-items: baseline; */
+        } </pre
+        >
+      </div>
+      <div style="display: flex; gap: 40px; flex-wrap: wrap">
+        <div class="mb20">
+          <h4>stretch (기본값)</h4>
+          <p>아이템들이 수직축 방향으로 늘어남</p>
+          <div
+            class="flex-container"
+            style="justify-content: start; align-items: stretch; height: 150px"
+          >
+            <div class="item align-item" style="height: auto; font-size: 18px">
+              item1
+            </div>
+            <div class="item align-item" style="height: auto; font-size: 14px">
+              item2
+            </div>
+            <div class="item align-item" style="height: auto; font-size: 24px">
+              item3
+            </div>
+          </div>
+        </div>
+        <div class="mb20">
+          <h4>flex-start</h4>
+          <p>아이템들을 시작점을 기준으로 정렬</p>
+          <div
+            class="flex-container"
+            style="
+              justify-content: start;
+              align-items: flex-start;
+              height: 150px;
+            "
+          >
+            <div class="item align-item" style="height: auto; font-size: 18px">
+              item1
+            </div>
+            <div class="item align-item" style="height: auto; font-size: 14px">
+              item2
+            </div>
+            <div class="item align-item">item3</div>
+          </div>
+        </div>
+        <div class="mb20">
+          <h4>flex-end</h4>
+          <p>아이템들을 끝점을 기준으로 정렬</p>
+          <div
+            class="flex-container"
+            style="justify-content: start; align-items: flex-end; height: 150px"
+          >
+            <div class="item align-item" style="height: auto; font-size: 18px">
+              item1
+            </div>
+            <div class="item align-item" style="height: auto; font-size: 14px">
+              item2
+            </div>
+            <div class="item align-item">item3</div>
+          </div>
+        </div>
+        <div class="mb20">
+          <h4>center</h4>
+          <p>아이템들을 가운데로 정렬</p>
+          <div
+            class="flex-container"
+            style="justify-content: start; align-items: center; height: 150px"
+          >
+            <div class="item align-item" style="height: auto; font-size: 18px">
+              item1
+            </div>
+            <div class="item align-item" style="height: auto; font-size: 14px">
+              item2
+            </div>
+            <div class="item align-item">item3</div>
+          </div>
+        </div>
+        <div class="mb20">
+          <h4>baseline</h4>
+          <p>아이템들을 ""텍스트 베이스라인"" 기준으로 정렬</p>
+          <div
+            class="flex-container"
+            style="justify-content: start; align-items: baseline; height: 150px"
+          >
+            <div class="item align-item" style="height: auto; font-size: 18px">
+              item1
+            </div>
+            <div class="item align-item" style="height: auto; font-size: 14px">
+              item2
+            </div>
+            <div class="item align-item">item3</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <h1>Flex item 속성</h1>
+    <section id="section5">
+      <h2>#기본 크기 설정 flex-basis</h2>
+      <div class="code">
+        <pre class="prettyprint lang-css">
+        .item {
+          flex-basis: auto; /* 기본값 */
+          /* flex-basis: 0; */
+          /* flex-basis: 50%; */
+          /* flex-basis: 300px; */
+          /* flex-basis: 10rem; */
+          /* flex-basis: content; */
+        } </pre
+        >
+      </div>
+      <div>
+        <h4>width와 flex-basis 차이</h4>
+        <div style="margin-bottom: 25px">
+          <p>
+            { flex-basis: 100px; } // 100px 미만일 경우 100px로 늘어나고, 100px
+            이상일 경우에는 width가 유지됨
+          </p>
+          <div class="flex-container" style="justify-content: start">
+            <div class="item basis-item">item1</div>
+            <div class="item basis-item">item22222222222</div>
+            <div class="item basis-item">item3</div>
+          </div>
+        </div>
+        <div>
+          <p>{ width:100px; } // width 100px로 고정</p>
+          <div
+            class="flex-container"
+            style="justify-content: start; align-items: flex-start"
+          >
+            <div class="item" style="width: 100px">item1</div>
+            <div class="item">
+              <p
+                style="
+                  width: 100px;
+                  word-break: keep-all;
+                  word-wrap: break-word;
+                "
+              >
+                item22222222222
+              </p>
+            </div>
+            <div class="item" style="width: 100px">item3</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="section6">
+      <h2>#유연하게 늘리기 flow-grow</h2>
+      <p>남은 빈 공간을 메우며 늘어남</p>
+      <div class="code">
+        <pre class="prettyprint lang-css">
+        .item {
+          flex-grow: 0;
+          /* flex-grow: 1; */ 
+        } </pre
+        >
+      </div>
+      <div style="display: flex; gap: 20px">
+        <div style="width: calc(50% - 10px)">
+          <p>flex-grow:0</p>
+          <div
+            class="flex-container"
+            style="justify-content: start; align-items: flex-start"
+          >
+            <div class="item align-item">item1</div>
+            <div class="item align-item">Item2</div>
+            <div class="item align-item">item3</div>
+          </div>
+        </div>
+        <div style="width: calc(50% - 10px)">
+          <p>flex-grow:1</p>
+          <div
+            class="flex-container"
+            style="justify-content: start; align-items: flex-start"
+          >
+            <div class="item align-item" style="flex-grow: 1">item1</div>
+            <div class="item align-item" style="flex-grow: 1">Item2</div>
+            <div class="item align-item" style="flex-grow: 1">item3</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="section7">
+      <h2>#유연하게 줄이기 flex-shrink</h2>
+      <p>flex-basis보다 작아질 수 있는지를 결정함</p>
+      <div class="code">
+        <pre class="prettyprint lang-css">
+        .item {
+          flex-grow: 0;
+          /* flex-grow: 1; */ 
+        } </pre
+        >
+      </div>
+
+      <div
+        class="flex-container"
+        style="justify-content: start; align-items: flex-start"
+      >
+        <div class="item basis-item" style="flex-shrink: 0">flex-shrink:0</div>
+        <div class="item align-item" style="flex-grow: 1">Item2</div>
+      </div>
+      <div
+        class="flex-container"
+        style="justify-content: start; align-items: flex-start; width: 500px"
+      >
+        <div class="item basis-item" style="flex-shrink: 0">flex-shrink:0</div>
+        <div class="item align-item" style="flex-grow: 1">
+          컨테이너 크기 줄여도 안줄어들지롱
+        </div>
+      </div>
+    </section>
+    <section id="section8">
+      <h2>#수직축 정렬 align-self</h2>
+      <div class="code">
+        <pre class="prettyprint lang-css">
+          .item {
+            align-self: auto;
+            /* align-self: stretch; */
+            /* align-self: flex-start; */
+            /* align-self: flex-end; */
+            /* align-self: center; */
+            /* align-self: baseline; */
+          } </pre
+        >
+      </div>
+      <div
+        class="flex-container"
+        style="
+          justify-content: start;
+          align-items: start;
+          height: 200px;
+          text-align: center;
+        "
+      >
+        <div class="item align-item" style="align-self: stretch; height: auto">
+          default
+        </div>
+        <div class="item align-item" style="align-self: flex-start">
+          flex-start
+        </div>
+        <div class="item align-item" style="align-self: center">center</div>
+        <div class="item align-item" style="align-self: flex-end">flex-end</div>
+      </div>
+    </section>
+    <section id="section9">
+      <h2>#배치순서 order</h2>
+      <p>아이템 순서 결정 (시각적으로 변경, HTML 구조는 변하지 않음)</p>
+      <div class="code">
+        <pre class="prettyprint lang-css">
+          #item1 { order: 3; } 
+          #item2 { order: 1; } 
+          #item3 { order: 2; } </pre
+        >
+      </div>
+      <div class="flex-container" style="justify-content: start">
+        <div class="item align-item" style="order: 3">item1</div>
+        <div class="item align-item" style="order: 1">item2</div>
+        <div class="item align-item" style="order: 2">item3</div>
+      </div>
+    </section>
+    <div class="btn_top">↑</div>
+  </body>
+</html>

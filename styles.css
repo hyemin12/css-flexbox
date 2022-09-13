@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
+body {
+  width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+}
+section {
+  width: 860px;
+  padding: 40px 0;
+  border-bottom: 2px solid #eee;
+}
+.mb20 {
+  margin-bottom: 20px;
+}
+section > h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+section h4,
+section p {
+  margin-bottom: 10px;
+}
+.code {
+  margin-bottom: 20px;
+}
+.prettyprint {
+  padding: 10px;
+}
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: yellow;
+  border: 3px solid #333;
+  padding: 10px;
+  margin: 10px 0;
+}
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+  border: 3px solid #333;
+  color: #fff;
+}
+
+/* display-flex */
+.flex-item {
+  width: calc(700px / 3);
+  height: 180px;
+}
+.flex-container.dFlex {
+  justify-content: start;
+  width: 100%;
+}
+
+.select-radio span {
+  padding: 0 15px 0 5px;
+}
+
+/* flex-direction */
+
+.direction-eg {
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 50px;
+  padding: 20px;
+}
+.direction-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100%;
+  background-color: green;
+  border: 3px solid #333;
+}
+.flex-container.dWrap {
+  width: 300px;
+  height: 100px;
+  justify-content: start;
+}
+.wrap-item {
+  flex-shrink: 0;
+  width: 120px;
+  height: 80px;
+  background-color: green;
+  border: 3px solid #333;
+}
+.align-item {
+  width: 70px;
+  height: 70px;
+}
+.basis-item {
+  flex-basis: 100px;
+  height: 70px;
+}
+
+ol li {
+  padding: 5px 0;
+}
+a {
+  color: #333;
+}
+a:hover {
+  color: orange;
+}
+.btn_top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #ccc;
+  border-radius: 50%;
+  color: #333;
+  position: fixed;
+  right: 20px;
+  bottom: 10px;
+  cursor: pointer;
+}
+.main-title {
+  padding: 50px 0;
+  text-align: center;
+  border-bottom: 4px solid #eee;
+}
