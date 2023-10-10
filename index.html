@@ -34,7 +34,7 @@
         </li>
         <li><a href="#section4">[컨테이너] 수직축 방향 정렬 align-items</a></li>
         <li><a href="#section5">[아이템] 기본 크기 설정 flex-basis</a></li>
-        <li><a href="#section6">[아이템] 유연하게 늘리기 flow-grow</a></li>
+        <li><a href="#section6">[아이템] 유연하게 늘리기 flex-grow</a></li>
         <li><a href="#section7">[아이템]유연하게 줄이기 flex-shrink</a></li>
         <li><a href="#section8">[아이템] 수직축 정렬 align-self</a></li>
         <li><a href="#section9">[아이템] 배치순서 order</a></li>
@@ -391,7 +391,7 @@
       </div>
     </section>
     <section id="section6">
-      <h2>#유연하게 늘리기 flow-grow</h2>
+      <h2>#유연하게 늘리기 flex-grow</h2>
       <p>남은 빈 공간을 메우며 늘어남</p>
       <div class="code">
         <pre class="prettyprint lang-css">
@@ -432,8 +432,8 @@
       <div class="code">
         <pre class="prettyprint lang-css">
         .item {
-          flex-grow: 0;
-          /* flex-grow: 1; */ 
+          flex-shrink: 0;
+          /* flex-shrink: 1; */ 
         } </pre
         >
       </div>
